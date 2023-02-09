@@ -30,7 +30,7 @@ const Layout = ({ children, home }) => {
                     <>
                         <Image
                             priority
-                            src="/images/profile.jpg"
+                            src="/images/photo.svg"
                             className={utilStyles.borderCircle}
                             height={144}
                             width={144}
