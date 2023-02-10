@@ -1,3 +1,4 @@
+import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import Layout, { siteTitle } from '../components/layout';
 import utilStyles from '../styles/utils.module.css';
@@ -5,7 +6,7 @@ import { getSortedPostsData } from '../lib/posts';
 import Link from 'next/link';
 import Date from '../components/date';
 
-export const getServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const allPostsData = getSortedPostsData();
   return {
     props: {
@@ -14,7 +15,15 @@ export const getServerSideProps = async () => {
   };
 }
 
-const Home = ({ allPostsData }) => {
+type Props = {
+  allPostsData: {
+    id: string
+    title: string
+    date: string
+  }[]
+}
+
+const Home = ({ allPostsData }: Props) => {
   return (
     <Layout home>
       <Head>
